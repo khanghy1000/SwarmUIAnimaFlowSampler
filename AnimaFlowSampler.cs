@@ -214,8 +214,7 @@ public class AnimaFlowSampler : Extension
                 Max: 3,
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 1,
-                Toggleable: true
+                OrderPriority: 1
             )
         );
         AnimaSettingsFlowPc3GammaParam = T2IParamTypes.Register<double>(
@@ -228,8 +227,7 @@ public class AnimaFlowSampler : Extension
                 Step: 0.05,
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 2,
-                Toggleable: true
+                OrderPriority: 2
             )
         );
         AnimaSettingsFlowPc3ToleranceParam = T2IParamTypes.Register<double>(
@@ -242,8 +240,7 @@ public class AnimaFlowSampler : Extension
                 Step: 0.0005,
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 3,
-                Toggleable: true
+                OrderPriority: 3
             )
         );
         AnimaSettingsFlowUnipcOrderParam = T2IParamTypes.Register<int>(
@@ -255,8 +252,7 @@ public class AnimaFlowSampler : Extension
                 Max: 6,
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 4,
-                Toggleable: true
+                OrderPriority: 4
             )
         );
         AnimaSettingsFlowUnipcSolverTypeParam = T2IParamTypes.Register<string>(
@@ -267,8 +263,7 @@ public class AnimaFlowSampler : Extension
                 GetValues: _ => new List<string> { "bh1", "bh2" },
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 5,
-                Toggleable: true
+                OrderPriority: 5
             )
         );
         AnimaSettingsFlowUnipcLowerOrderFinalParam = T2IParamTypes.Register<bool>(
@@ -278,8 +273,7 @@ public class AnimaFlowSampler : Extension
                 "true",
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 6,
-                Toggleable: true
+                OrderPriority: 6
             )
         );
         AnimaSettingsFlowUnipcDisableCorrectorFirstParam = T2IParamTypes.Register<int>(
@@ -291,8 +285,7 @@ public class AnimaFlowSampler : Extension
                 Max: 10,
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 7,
-                Toggleable: true
+                OrderPriority: 7
             )
         );
         AnimaSettingsFlowUnipcThresholdingParam = T2IParamTypes.Register<bool>(
@@ -302,8 +295,7 @@ public class AnimaFlowSampler : Extension
                 "false",
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 8,
-                Toggleable: true
+                OrderPriority: 8
             )
         );
         AnimaSettingsFlowUnipcDynamicThresholdingRatioParam = T2IParamTypes.Register<double>(
@@ -316,8 +308,7 @@ public class AnimaFlowSampler : Extension
                 Step: 0.001,
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 9,
-                Toggleable: true
+                OrderPriority: 9
             )
         );
         AnimaSettingsFlowUnipcSampleMaxValueParam = T2IParamTypes.Register<double>(
@@ -330,8 +321,7 @@ public class AnimaFlowSampler : Extension
                 Step: 0.1,
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 10,
-                Toggleable: true
+                OrderPriority: 10
             )
         );
         AnimaSettingsCfgEarlyScaleParam = T2IParamTypes.Register<double>(
@@ -344,8 +334,7 @@ public class AnimaFlowSampler : Extension
                 Step: 0.01,
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 11,
-                Toggleable: true
+                OrderPriority: 11
             )
         );
         AnimaSettingsCfgEarlyRampEndParam = T2IParamTypes.Register<double>(
@@ -358,8 +347,7 @@ public class AnimaFlowSampler : Extension
                 Step: 0.01,
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 12,
-                Toggleable: true
+                OrderPriority: 12
             )
         );
         AnimaSettingsCfgPeakBoostParam = T2IParamTypes.Register<double>(
@@ -372,8 +360,7 @@ public class AnimaFlowSampler : Extension
                 Step: 0.05,
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 13,
-                Toggleable: true
+                OrderPriority: 13
             )
         );
         AnimaSettingsCfgBumpStartParam = T2IParamTypes.Register<double>(
@@ -386,8 +373,7 @@ public class AnimaFlowSampler : Extension
                 Step: 0.01,
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 14,
-                Toggleable: true
+                OrderPriority: 14
             )
         );
         AnimaSettingsCfgBumpEndParam = T2IParamTypes.Register<double>(
@@ -400,8 +386,7 @@ public class AnimaFlowSampler : Extension
                 Step: 0.01,
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 15,
-                Toggleable: true
+                OrderPriority: 15
             )
         );
         AnimaSettingsCfgBetaAlphaParam = T2IParamTypes.Register<double>(
@@ -414,8 +399,7 @@ public class AnimaFlowSampler : Extension
                 Step: 0.1,
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 16,
-                Toggleable: true
+                OrderPriority: 16
             )
         );
         AnimaSettingsCfgBetaBetaParam = T2IParamTypes.Register<double>(
@@ -428,8 +412,7 @@ public class AnimaFlowSampler : Extension
                 Step: 0.1,
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 17,
-                Toggleable: true
+                OrderPriority: 17
             )
         );
         AnimaSettingsLateCfgScaleParam = T2IParamTypes.Register<double>(
@@ -442,8 +425,7 @@ public class AnimaFlowSampler : Extension
                 Step: 0.01,
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 18,
-                Toggleable: true
+                OrderPriority: 18
             )
         );
         AnimaSettingsLateCfgStartParam = T2IParamTypes.Register<double>(
@@ -456,8 +438,7 @@ public class AnimaFlowSampler : Extension
                 Step: 0.01,
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 19,
-                Toggleable: true
+                OrderPriority: 19
             )
         );
         AnimaSettingsCfgLegacyProgressParam = T2IParamTypes.Register<bool>(
@@ -467,8 +448,7 @@ public class AnimaFlowSampler : Extension
                 "false",
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 20,
-                Toggleable: true
+                OrderPriority: 20
             )
         );
         AnimaSettingsDenoiseLegacyProgressParam = T2IParamTypes.Register<bool>(
@@ -478,8 +458,7 @@ public class AnimaFlowSampler : Extension
                 "false",
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 21,
-                Toggleable: true
+                OrderPriority: 21
             )
         );
         AnimaSettingsFlowRho7TailAutoParam = T2IParamTypes.Register<bool>(
@@ -489,8 +468,7 @@ public class AnimaFlowSampler : Extension
                 "false",
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 22,
-                Toggleable: true
+                OrderPriority: 22
             )
         );
         AnimaSettingsFinalCleanPassParam = T2IParamTypes.Register<bool>(
@@ -500,8 +478,7 @@ public class AnimaFlowSampler : Extension
                 "false",
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 23,
-                Toggleable: true
+                OrderPriority: 23
             )
         );
         AnimaSettingsCosmosSigmaMaxParam = T2IParamTypes.Register<double>(
@@ -514,8 +491,7 @@ public class AnimaFlowSampler : Extension
                 Step: 0.5,
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 24,
-                Toggleable: true
+                OrderPriority: 24
             )
         );
         AnimaSettingsCosmosSigmaMinParam = T2IParamTypes.Register<double>(
@@ -528,8 +504,7 @@ public class AnimaFlowSampler : Extension
                 Step: 0.0001,
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 25,
-                Toggleable: true
+                OrderPriority: 25
             )
         );
         AnimaSettingsRfEndpointNoiseRefreshEnabledParam = T2IParamTypes.Register<bool>(
@@ -539,8 +514,7 @@ public class AnimaFlowSampler : Extension
                 "false",
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 26,
-                Toggleable: true
+                OrderPriority: 26
             )
         );
         AnimaSettingsRfEndpointNoiseRefreshStrengthParam = T2IParamTypes.Register<double>(
@@ -553,8 +527,7 @@ public class AnimaFlowSampler : Extension
                 Step: 0.01,
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 27,
-                Toggleable: true
+                OrderPriority: 27
             )
         );
         AnimaSettingsRfEndpointNoiseRefreshUntilParam = T2IParamTypes.Register<double>(
@@ -567,8 +540,7 @@ public class AnimaFlowSampler : Extension
                 Step: 0.01,
                 Group: AnimaFlowSamplerSettingsParamGroup,
                 FeatureFlag: "comfyui",
-                OrderPriority: 28,
-                Toggleable: true
+                OrderPriority: 28
             )
         );
     }

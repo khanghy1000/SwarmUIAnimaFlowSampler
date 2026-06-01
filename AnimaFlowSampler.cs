@@ -74,11 +74,20 @@ public class AnimaFlowSampler : Extension
                                 && classTypeToken.ToString() == "SwarmKSampler"
                             )
                             {
+                                JObject kSamplerInputs = nodeData["inputs"] as JObject;
+
+                                if (
+                                    kSamplerInputs != null
+                                    && kSamplerInputs["tile_sample"].ToString().ToLower() == "true"
+                                )
+                                {
+                                    continue;
+                                }
+
                                 JObject animaSamplerNode = new JObject();
                                 animaSamplerNode["class_type"] = "AnimaFlowCorrectiveSampler";
 
                                 JObject animaSamplerInputs = new JObject();
-                                JObject kSamplerInputs = nodeData["inputs"] as JObject;
 
                                 if (kSamplerInputs != null)
                                 {

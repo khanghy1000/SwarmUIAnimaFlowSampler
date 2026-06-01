@@ -85,7 +85,11 @@ public class AnimaFlowSampler : Extension
                                     animaSamplerInputs = GetMainParamInputs(kSamplerInputs, g);
                                 }
 
-                                bool isSettingsEnabled = g.UserInput.InternalSet.ValuesInput.Keys.Any(key => T2IParamTypes.Types.TryGetValue(key, out T2IParamType type) && type.Group == AnimaFlowSamplerSettingsParamGroup);
+                                bool isSettingsEnabled =
+                                    g.UserInput.InternalSet.ValuesInput.Keys.Any(key =>
+                                        T2IParamTypes.Types.TryGetValue(key, out T2IParamType type)
+                                        && type.Group == AnimaFlowSamplerSettingsParamGroup
+                                    );
                                 if (isSettingsEnabled)
                                 {
                                     JObject settingsInputs = GetSettingParamInputs(g);
@@ -564,8 +568,7 @@ public class AnimaFlowSampler : Extension
 
         newInputs["denoise"] =
             1.0 - ((double)kSamplerInputs["start_at_step"] / (double)kSamplerInputs["steps"]);
-        newInputs["add_noise"] =
-            kSamplerInputs["add_noise"].ToString() == "enable" ? "true" : "false";
+        newInputs["add_noise"] = kSamplerInputs["add_noise"].ToString() == "enable";
 
         newInputs["cfg_mode"] = g.UserInput.TryGet(AnimaCFGModeParam, out string cfgMode)
             ? cfgMode

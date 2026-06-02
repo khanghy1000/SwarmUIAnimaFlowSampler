@@ -61,63 +61,57 @@ public class AnimaFlowSampler : Extension
         WorkflowGenerator.AddStep(
             g =>
             {
-                if (g.UserInput.TryGet(AnimaScheduleParam, out _) && g.IsAnima())
+                if (!g.UserInput.TryGet(AnimaScheduleParam, out _) || !g.IsAnima())
                 {
-                    foreach (JProperty node in g.Workflow.Properties().ToList())
+                    return;
+                }
+
+                foreach (JProperty node in g.Workflow.Properties().ToList())
+                {
+                    if (!(node.Value is JObject nodeData))
                     {
-                        if (node.Value is JObject nodeData)
-                        {
-                            JToken classTypeToken = nodeData["class_type"];
-
-                            if (
-                                classTypeToken != null
-                                && classTypeToken.ToString() == "SwarmKSampler"
-                            )
-                            {
-                                JObject kSamplerInputs = nodeData["inputs"] as JObject;
-
-                                if (
-                                    kSamplerInputs != null
-                                    && kSamplerInputs["tile_sample"].ToString().ToLower() == "true"
-                                )
-                                {
-                                    continue;
-                                }
-
-                                JObject animaSamplerNode = new JObject();
-                                animaSamplerNode["class_type"] = "AnimaFlowCorrectiveSampler";
-
-                                JObject animaSamplerInputs = new JObject();
-
-                                if (kSamplerInputs != null)
-                                {
-                                    animaSamplerInputs = GetMainParamInputs(kSamplerInputs, g);
-                                }
-
-                                bool isSettingsEnabled =
-                                    g.UserInput.InternalSet.ValuesInput.Keys.Any(key =>
-                                        T2IParamTypes.Types.TryGetValue(key, out T2IParamType type)
-                                        && type.Group == AnimaFlowSamplerSettingsParamGroup
-                                    );
-                                if (isSettingsEnabled)
-                                {
-                                    JObject settingsInputs = GetSettingParamInputs(g);
-                                    string settingsNode = g.CreateNode(
-                                        "AnimaFlowSettings",
-                                        settingsInputs
-                                    );
-                                    animaSamplerInputs["flow_settings"] = new JArray()
-                                    {
-                                        settingsNode,
-                                        0,
-                                    };
-                                }
-
-                                animaSamplerNode["inputs"] = animaSamplerInputs;
-                                node.Value = animaSamplerNode;
-                            }
-                        }
+                        continue;
                     }
+
+                    JToken classTypeToken = nodeData["class_type"];
+                    if (classTypeToken == null || classTypeToken.ToString() != "SwarmKSampler")
+                    {
+                        continue;
+                    }
+
+                    JObject kSamplerInputs = nodeData["inputs"] as JObject;
+                    if (
+                        kSamplerInputs != null
+                        && kSamplerInputs["tile_sample"]?.ToString().ToLower() == "true"
+                    )
+                    {
+                        continue;
+                    }
+
+                    JObject animaSamplerNode = new JObject();
+                    animaSamplerNode["class_type"] = "AnimaFlowCorrectiveSampler";
+
+                    JObject animaSamplerInputs = new JObject();
+
+                    if (kSamplerInputs != null)
+                    {
+                        animaSamplerInputs = GetMainParamInputs(kSamplerInputs, g);
+                    }
+
+                    bool isSettingsEnabled = g.UserInput.InternalSet.ValuesInput.Keys.Any(key =>
+                        T2IParamTypes.Types.TryGetValue(key, out T2IParamType type)
+                        && type.Group == AnimaFlowSamplerSettingsParamGroup
+                    );
+
+                    if (isSettingsEnabled)
+                    {
+                        JObject settingsInputs = GetSettingParamInputs(g);
+                        string settingsNode = g.CreateNode("AnimaFlowSettings", settingsInputs);
+                        animaSamplerInputs["flow_settings"] = new JArray() { settingsNode, 0 };
+                    }
+
+                    animaSamplerNode["inputs"] = animaSamplerInputs;
+                    node.Value = animaSamplerNode;
                 }
             },
             0.5
